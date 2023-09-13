@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="'welcome: '+${userName}"></h1>
+<form action="/logoutWithSecret" method="POST">
+    <input type="submit" value="Log Out">
+</form>
+<h2>Your Posts:</h2>
+<ul>
+    <th:block th:each="post : ${postInfo}">
+        <li th:text="${post.postInfo}"></li>
+    </th:block>
+</ul>
+<h1>Add a Post</h1>
+<form action="/addpost" method="POST">
+    <label for="postInfo">Post Content:</label><br>
+    <textarea id="postInfo" name="postInfo"  required></textarea><br><br>
+    <input type="submit" value="Add Post">
+</form>
+<br>
+</body>
+</html>
